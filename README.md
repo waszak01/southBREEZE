@@ -47,7 +47,7 @@ Można także przetestować działanie relacji wiele-do-jednego wyświetlając l
 
 Podłączenie do bazy danych realizowane jest poleceniem:
 
-$link = mysql_connect($_SESSION['sqlhost'], $_SESSION['sqllogin'], $_SESSION['sqlpassword'])
+    $link = mysql_connect($_SESSION['sqlhost'], $_SESSION['sqllogin'], $_SESSION['sqlpassword'])
                 or die("Nie można nawiązać połączenia z bazą");
                 mysql_select_db($_SESSION['sqldatabase'])
                 or die("Wystąpił błąd podczas wybierania bazy danych");

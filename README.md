@@ -52,5 +52,48 @@ Podłączenie do bazy danych realizowane jest poleceniem:
                 mysql_select_db($_SESSION['sqldatabase'])
                 or die("Wystąpił błąd podczas wybierania bazy danych");
                 
-Odpowiednie parametry są pobrane wcześniej do zmiennych sesyjnych.
+Odpowiednie parametry są pobrane wcześniej do zmiennych sesyjnych. Następnie po ustawieniu mniej istotnych zmiennych dotyczących prezentacji danych pobieramy liczbę rekordów:
 
+    $sql = 'Select count(*) from Customers';
+    $result = mysql_query($sql,$link);
+    $r = mysql_fetch_array($result);
+
+pobieramy paczkę danych:
+
+    $sql = 'SELECT * FROM Customers ORDER BY CompanyName ASC Limit '.$count.' offset '.$offset.';';
+    $result = mysql_query($sql,$link);
+
+którą następnie prezentujemy w tabeli:
+
+
+    echo '<table><tr>
+    <th>ID</th>
+    <th>Nazwa</th><th>Kontakt</th>
+    <th>Tytuł</th>
+    <th>Adres</th>
+    <th>Miasto</th>
+    <th>Kod</th>
+    <th>Kraj</th>
+    <th>Telefon</th>
+    <th>Fax</th>
+    </tr>';
+
+
+W pętli wyświetlamy wszystkie rekordy:
+
+
+    while(($row=mysql_fetch_array($result))!=NULL){
+    echo   '<tr><td>'      .$row['CustomerID'].
+                '</td><td>'     .$row['CompanyName'].
+                '</td><td>'     .$row['ContactName'].
+                '</td><td>'     .$row['ContactTitle'].
+                '</td><td>'     .$row['Address'].
+                '</td><td>'     .$row['City'].
+                '</td><td>'     .$row['PostalCode'].
+                '</td><td>'     .$row['Country'].
+                '</td><td>'     .$row['Phone'].
+                '</td><td>'     .$row['Fax'].
+                '</td></tr>';
+    }
+    echo '</table>';
+ 

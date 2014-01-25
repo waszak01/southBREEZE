@@ -97,3 +97,67 @@ W pętli wyświetlamy wszystkie rekordy:
     }
     echo '</table>';
  
+ 
+Aby dodać nowy rekord, tworzymy najpierw formularz, do którego operator albo użytkownik systemu będzie wpisywał dane dodawanego klienta.
+
+    echo "<form action='edit_klient.php' method=post>";
+        echo "<br> Dodaj nowego klienta<br>";
+                echo "<table><tr><td>ID :</td><td><input type=text name=id></td></tr>";
+        echo "<tr><td>Nazwa :</td><td><input type=text name=nazwa>";
+        echo "<tr><td>Kontakt :</td><td><input type=text name=kontakt>";
+        echo "<tr><td>Tytuł :</td><td><input type=text name=tytul></td></tr>";
+        echo "<tr><td>Adres :</td><td><input type=text name=adres></td></tr>";
+                echo "<tr><td>Miasto :</td><td><input type=text name=miasto></td></tr>";
+                echo "<tr><td>Kod :</td><td><input type=text name=kod></td></tr>";
+                echo "<tr><td>Kraj :</td><td><input type=text name=kraj></td></tr>";
+                echo "<tr><td>Telefon :</td><td><input type=text name=telefon></td></tr>";
+                echo "<tr><td>Fax :</td><td><input type=text name=fax></td></tr>";
+
+        echo "<input type=hidden value='1' name=send>";
+        echo "<input type=submit value='Dodaj klienta'>";
+        echo "</table></form>";
+        
+        
+Następnie sprawdzamy dane i dodajemy nowy rekord do bazy:
+
+    if($_POST["send"]==1)
+        {
+        if(!empty($_POST["id"]) && !empty($_POST["nazwa"]) )
+                {
+                $link_delikwenta="SELECT * FROM Customers WHERE CustomerID='".$_POST['id']."'";
+                $zapytanie = mysql_query($link_delikwenta);
+                $istnieje= mysql_num_rows($zapytanie);
+
+                if ($istnieje > 0)
+                        {
+                        echoAlert("W bazie danych istnieje już klient o takim ID.");
+                        }
+                else
+                        {
+            $kwer="insert into Customers values(
+                        '".htmlspecialchars($_POST["id"])."',
+                        '".htmlspecialchars($_POST["nazwa"])."',
+                        '".htmlspecialchars($_POST["kontakt"])."',
+                        '".htmlspecialchars($_POST["tytul"])."',
+                        '".htmlspecialchars($_POST["adres"])."',
+                        '".htmlspecialchars($_POST["miasto"])."',
+                        NULL,
+                        '".htmlspecialchars($_POST["kod"])."',
+                        '".htmlspecialchars($_POST["kraj"])."',
+                        '".htmlspecialchars($_POST["telefon"])."',
+                        '".htmlspecialchars($_POST["fax"])."'
+                        )";
+            mysql_query($kwer);
+            echoAlert('Dodano klienta.');
+                        }
+                }
+                else echoAlert("Musisz podać przynajmniej ID i nazwę.");
+        }
+        
+
+Usunięcie rekordu realizuje kod:
+
+    $del_qry="DELETE FROM Customers WHERE CustomerId='" . $_GET['id']."'";
+    mysql_query($del_qry);
+    echo "Usunąłem klienta o ID ".$_GET['id'].".<br><br>";
+    

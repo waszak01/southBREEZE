@@ -5,8 +5,6 @@ Projekt "Relacyjne bazy danych"
 
 Autorzy: Sławomir Maderak (dokumentacja), Tomasz Waszak (kodowanie)
 
-Bazę danych zaimportowano do bazy MySQL. Frontend zakodowano używając języka PHP w połączeniu z bazą danych.
-
 
 INSTALACJA
 ==========
@@ -34,10 +32,11 @@ URUCHOMIENIE
 Bazę danych odpowiadającą za warstwę persystencji naszej aplikacji zainicjowaliśmy używając narzędzia phpMyAdmin (www.phpmyadmin.net). Narzędzie to umożliwia proste i szybkie wyklikanie nawet bardzo złożonych czynności administracyjnych, które w typowym scenariuszu należałoby wykonać z konsoli tekstowej używając języka SQL.
 
 
-DZIAŁANIE
-=========
+BUDOWA I DZIAŁANIE
+==================
 
-Funkcjonujący system dostępny jest pod adresem http://btw.com.pl/agh/ . Można z tego poziomu przetestować funkcjonalność serwisu (http://btw.com.pl/agh/edit_klient.php):
+Funkcjonujący system dostępny jest pod adresem http://btw.com.pl/agh/ . Warstwa prezentacji oraz logika aplikacji została zakodowana w języku PHP ze wstawkami HTML.
+Można z tego poziomu przetestować funkcjonalność serwisu (http://btw.com.pl/agh/edit_klient.php):
 
 * przeglądanie rekordów przykładowej tabeli (klienci),
 * dodawanie nowego rekordu zawierającego wprowadzone dane,

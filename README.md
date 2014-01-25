@@ -52,7 +52,14 @@ Podłączenie do bazy danych realizowane jest poleceniem:
                 mysql_select_db($_SESSION['sqldatabase'])
                 or die("Wystąpił błąd podczas wybierania bazy danych");
                 
-Odpowiednie parametry są pobrane wcześniej do zmiennych sesyjnych. Następnie po ustawieniu mniej istotnych zmiennych dotyczących prezentacji danych pobieramy liczbę rekordów:
+Odpowiednie parametry są pobrane wcześniej do zmiennych sesyjnych. Następnie po ustawieniu mniej istotnych zmiennych dotyczących prezentacji danych..
+
+    $count=8;
+    $offset=0;
+    if(isset($_GET['count']))$count = $_GET['count'];
+    if(isset($_GET['offset']))$offset = $count*$_GET['offset'];
+
+pobieramy liczbę rekordów:
 
     $sql = 'Select count(*) from Customers';
     $result = mysql_query($sql,$link);

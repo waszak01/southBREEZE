@@ -46,6 +46,9 @@ Można także przetestować działanie relacji wiele-do-jednego wyświetlając l
 
 Na potrzeby projektu stworzyliśmy także maszynę wirtualną z zainstalowanym i uruchomionym kompletnym systemem. Maszynę wirtualną oparliśmy na systemie Linux. Aby zminimalizować wykorzystywane zasoby, wybraliśmy dystrybucję Fedora z zainstalowanym lekkim środowiskiem graficznym LXDE. Pozwala to uruchomić kompletny system już przy 768MB dostępnej pamięci RAM. Główny dysk maszyny wirtualnej umieszczony jest w kontenerze QCOW i pozwala na uruchomienie wykorzystując wiele popularnych systemów wirtualizacji np. QEMU/KVM albo VirtualBox.
 
+Konto i hasło użytkownika: projekt / projekt
+Konto i hasło administratora: root / root
+
 
 KOD ŹRÓDŁOWY
 =========================

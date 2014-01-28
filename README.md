@@ -9,7 +9,7 @@ Autorzy: Sławomir Maderak (dokumentacja), Tomasz Waszak (kodowanie)
 INSTALACJA
 ==========
 
-Można również zainstalować poszczególne komponenty osobno, jednak wymaga to od użytkownika względnie szerokiej wiedzy i doświadczenia, co może znacznie wydłużyć czas uruchomienia, a czasem nawet wymagać pomocy innego bardziej doświadczonego użytkownika. Jeśli zaczynamy dopiero naszą przygodę z relacyjnymi bazami danych, najszybciej skorzystać z narzędzi w postaci pakietu XAMP (http://www.apachefriends.org/index.html) dostępnego dla współczesnych popularnych systemów operacyjnych. Pod wspomnianym wyżej adresem znajdziemy pakiety zawierające wiele różnych narzędzi, wśród których interesują nas przede wszystkim:
+Można zainstalować poszczególne komponenty osobno, jednak wymaga to od użytkownika względnie szerokiej wiedzy i doświadczenia, co może znacznie wydłużyć czas uruchomienia, a czasem nawet wymagać pomocy innego bardziej doświadczonego użytkownika. Jeśli zaczynamy dopiero naszą przygodę z relacyjnymi bazami danych, najszybciej skorzystać z narzędzi w postaci pakietu XAMP (http://www.apachefriends.org/index.html) dostępnego dla współczesnych popularnych systemów operacyjnych. Pod wspomnianym wyżej adresem znajdziemy pakiety zawierające wiele różnych narzędzi, wśród których interesują nas przede wszystkim:
 
 * serwer WWW - Apache (www.apache.org) wraz z modułem PHP (http://php.net/)
 * system zarządzania relacyjną bazą danych - MySQL (www.mysql.com) albo jego społecznościowy zamiennik MariaDB (mariadb.org)
@@ -29,7 +29,7 @@ Jednak w naszym projekcie nie będą one wykorzystywane.
 URUCHOMIENIE
 ============
 
-Bazę danych odpowiadającą za warstwę persystencji naszej aplikacji zainicjowaliśmy używając narzędzia phpMyAdmin (www.phpmyadmin.net). Narzędzie to umożliwia proste i szybkie wyklikanie nawet bardzo złożonych czynności administracyjnych, które w typowym scenariuszu należałoby wykonać z konsoli tekstowej używając języka SQL.
+Bazę danych odpowiadającą za warstwę persystencji naszej aplikacji zainicjowaliśmy używając narzędzia phpMyAdmin (www.phpmyadmin.net). Narzędzie to umożliwia proste i szybkie wyklikanie nawet bardzo złożonych czynności administracyjnych na bazie danych, które w typowym scenariuszu należałoby wykonać z konsoli tekstowej używając poleceń języka SQL.
 
 
 BUDOWA I DZIAŁANIE
@@ -43,11 +43,6 @@ Można z tego poziomu przetestować funkcjonalność serwisu (http://btw.com.pl/
 * usunięcie rekordu z tabeli,
 
 Można także przetestować działanie relacji wiele-do-jednego wyświetlając liczbę zamówień danego klienta (http://btw.com.pl/agh/list.php). Można także wyświetlić wszystkie zamówienia danego klienta.
-
-Na potrzeby projektu stworzyliśmy także maszynę wirtualną z zainstalowanym i uruchomionym kompletnym systemem. Maszynę wirtualną oparliśmy na systemie Linux. Aby zminimalizować wykorzystywane zasoby, wybraliśmy dystrybucję Fedora z zainstalowanym lekkim środowiskiem graficznym LXDE. Pozwala to uruchomić kompletny system już przy 768MB dostępnej pamięci RAM. Główny dysk maszyny wirtualnej umieszczony jest w kontenerze QCOW i pozwala na uruchomienie wykorzystując wiele popularnych systemów wirtualizacji np. QEMU/KVM albo VirtualBox.
-
-Konto i hasło użytkownika: projekt / projekt
-Konto i hasło administratora: root / root
 
 
 KOD ŹRÓDŁOWY

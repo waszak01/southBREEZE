@@ -35,7 +35,7 @@ Bazę danych odpowiadającą za warstwę persystencji naszej aplikacji zainicjow
 BUDOWA I DZIAŁANIE
 ==================
 
-Funkcjonujący system dostępny jest pod adresem http://btw.com.pl/agh/ . Warstwa prezentacji oraz logika aplikacji została zakodowana w języku PHP ze wstawkami HTML.
+Funkcjonujący system dostępny jest pod adresem http://btw.com.pl/agh/ . Warstwa prezentacji oraz logika aplikacji została napisana w języku PHP ze wstawkami HTML.
 Można z tego poziomu przetestować funkcjonalność serwisu (http://btw.com.pl/agh/edit_klient.php):
 
 * przeglądanie rekordów przykładowej tabeli (klienci),

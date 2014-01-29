@@ -12,7 +12,7 @@ INSTALACJA
 Można zainstalować poszczególne komponenty osobno, jednak wymaga to od użytkownika względnie szerokiej wiedzy i doświadczenia, co może znacznie wydłużyć czas uruchomienia, a czasem nawet wymagać pomocy innego bardziej doświadczonego użytkownika. Jeśli zaczynamy dopiero naszą przygodę z relacyjnymi bazami danych, najszybciej skorzystać z narzędzi w postaci pakietu XAMP (http://www.apachefriends.org/index.html) dostępnego dla współczesnych popularnych systemów operacyjnych. Pod wspomnianym wyżej adresem znajdziemy pakiety zawierające wiele różnych narzędzi, wśród których interesują nas przede wszystkim:
 
 * serwer WWW - Apache (www.apache.org) wraz z modułem PHP (http://php.net/)
-* system zarządzania relacyjną bazą danych - MySQL (www.mysql.com) albo jego społecznościowy zamiennik MariaDB (mariadb.org)
+* system zarządzania relacyjną bazą danych - MySQL (www.mysql.com) albo jego społecznościowy zamiennik MariaDB (https://mariadb.org)
 * graficzny interfejs obsługi bazy danych - phpMyAdmin (www.phpmyadmin.net)
 
 Warto wspomnieć, że w ramach tego pakietu mamy także możliwość zainstalowania dodatkowych narzędzi takich jak:

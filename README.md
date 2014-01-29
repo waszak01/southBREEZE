@@ -29,7 +29,7 @@ Jednak w naszym projekcie nie będą one wykorzystywane.
 URUCHOMIENIE
 ============
 
-Bazę danych odpowiadającą za warstwę persystencji naszej aplikacji zainicjowaliśmy używając narzędzia phpMyAdmin (www.phpmyadmin.net). Narzędzie to umożliwia proste i szybkie wyklikanie nawet bardzo złożonych czynności administracyjnych na bazie danych, które w typowym scenariuszu należałoby wykonać z konsoli tekstowej używając poleceń języka SQL.
+Projektową bazę danych Nortwind odpowiadającą za warstwę persystencji naszej aplikacji zainicjowaliśmy używając narzędzia phpMyAdmin (www.phpmyadmin.net). Narzędzie to umożliwia proste i szybkie wyklikanie nawet bardzo złożonych czynności administracyjnych na bazie danych, które w typowym scenariuszu należałoby wykonać z konsoli tekstowej używając poleceń języka SQL.
 
 
 BUDOWA I DZIAŁANIE

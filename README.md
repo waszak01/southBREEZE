@@ -41,6 +41,7 @@ Można z tego poziomu przetestować funkcjonalność serwisu (http://btw.com.pl/
 * przeglądanie rekordów przykładowej tabeli (klienci),
 * dodawanie nowego rekordu zawierającego wprowadzone dane,
 * usunięcie rekordu z tabeli,
+* edycja rekordu
 
 Można także przetestować działanie relacji wiele-do-jednego wyświetlając liczbę zamówień danego klienta (http://btw.com.pl/agh/list.php). Można także wyświetlić wszystkie zamówienia danego klienta.
 
@@ -169,5 +170,68 @@ Usunięcie rekordu realizuje kod:
 
     $del_qry="DELETE FROM Customers WHERE CustomerId='" . $_GET['id']."'";
     mysql_query($del_qry);
-    echo "Usunąłem klienta o ID ".$_GET['id'].".<br><br>";
+    
+Przy tej operacji sprawdzany jest ewentualny komunikat błędu, zwracany przez aparat bazy danych :
+
+    if (mysql_errno($link)==0)
+    
+W przypadku wystąpienia błędu, przechwytywany jest jego numer i komunikat :
+
+    echo mysql_errno($link) . ": " . mysql_error($link). "<br>";
+    
+Opcja uaktualniania rekordu :
+
+- pobieranie aktualnych wartości rekordu do formularza :
+
+    $sql="SELECT * FROM Customers WHERE CustomerID='".$_GET['id']."'";
+	$result = mysql_query($sql,$link);
+	$row=mysql_fetch_array($result);
+
+	echo "<form action='update_klient.php' method=post>";
+	echo "<br> Edytuj dane klienta '".$_GET['id']."'<br>";
+		echo "<table><tr><td>ID :</td><td>".$_GET['id']."</td></tr>";
+       	echo "<tr><td>Nazwa :</td><td><input type=text name=nazwa value='".htmlspecialchars($row['CompanyName'])."'>";
+      	echo "<tr><td>Kontakt :</td><td><input type=text name=kontakt value='".htmlspecialchars($row['ContactName'])."'>";
+        echo "<tr><td>Tytuł :</td><td><input type=text name=tytul value='".$row['ContactTitle']."'></td></tr>";
+        echo "<tr><td>Adres :</td><td><input type=text name=adres value='".$row['Address']."'></td></tr>";
+		echo "<tr><td>Miasto :</td><td><input type=text name=miasto value='".$row['City']."'></td></tr>";
+		echo "<tr><td>Kod :</td><td><input type=text name=kod value='".$row['PostalCode']."'></td></tr>";
+		echo "<tr><td>Kraj :</td><td><input type=text name=kraj value='".$row['Country']."'></td></tr>";
+		echo "<tr><td>Telefon :</td><td><input type=text name=telefon value='".$row['Phone']."'></td></tr>";
+		echo "<tr><td>Fax :</td><td><input type=text name=fax value='".$row['Fax']."'></td></tr>";
+
+	echo "<input type=hidden value='1' name=send>";
+	echo "<input type=hidden value='".$_GET['id']."' name=id>";
+	echo "<input type=submit value='Uaktualnij'>";
+	echo "</table></form>";
+	
+- wykonanie kwerendy aktualizującej :
+
+    $kwer="UPDATE Customers SET
+				CompanyName='".$_POST['nazwa']."',
+				ContactName='".$_POST['kontakt']."',
+				ContactTitle='".$_POST['tytul']."',
+				Address='".$_POST['adres']."',
+				City='".$_POST['miasto']."',
+				PostalCode='".$_POST['kod']."',
+				Country='".$_POST['kraj']."',
+				Phone='".$_POST['telefon']."',
+				Fax='".$_POST['fax']."'
+				WHERE CustomerID='".$_POST['id']."';";
+		
+            mysql_query($kwer);
+            
+- przechwycenie i wyświetlenie ewentualnego komunikatu błędu :
+
+    if (mysql_errno($link)==0)
+				{
+				echo "Uaktualniłem dane klienta o ID ".$_POST['id'].".<br><br>";
+				}
+			else
+				{
+				echo "Nie można uaktualnić danych klienta o ID ".$_GET['id'].". Poniżej znajduje się komnunikat błędu zwrócony przez aparat bazy danych :<br><br>";
+				echo mysql_errno($link) . ": " . mysql_error($link). "<br>";
+				
+				
+
     
